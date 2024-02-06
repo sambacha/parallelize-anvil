@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@viem/anvil": "^0.0.7",
+    "global-agent": "^3.0.0",
+    "undici": "^6.6.1",
     "vitest": "^1.2.2"
   },
   "devDependencies": {

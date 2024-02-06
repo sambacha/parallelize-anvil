@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+# Find the system node
+PATH="$(printf '%s\n' "$PATH" | sed "s:$(dirname "$0")\:::g")"
+systemNode=`command -v node`
+PATH="`dirname "$0"`:$PATH"
+
+# It's where the magic happens
+INJECT_SCRIPT_PATH=`dirname "$0"`/../js/overrides.min.js
+
+# Call node with the given arguments, prefixed with our extra logic
+# execute user arg and inject our code by using --require flag
+"$systemNode" -r "$INJECT_SCRIPT_PATH" "$@"
+
+## TODO 
+## Error handling
